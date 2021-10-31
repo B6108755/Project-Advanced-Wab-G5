@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## AngularApp
 Please install bootstrap@4.x jquery popper.js and font-awesome 
 
-'npm i bootstrap@4.x jquery popper.js font-awesome'
+`npm i bootstrap@4.x jquery popper.js font-awesome`
 
 ## Development server
 
