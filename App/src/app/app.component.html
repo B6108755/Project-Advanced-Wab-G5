@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-md bg-CPE navbar-dark" >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a  class="navbar-brand btn btn-CPE" routerLink = "home"> <img src="./../assets/icons/home/CPELOGO.png" style="border-radius: 11px;">&nbsp; Computer Club</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a routerLink = "home" class="btn btn-CPE">หน้าแรก</a>
+        </li>
+        &nbsp;
+        <li class="nav-item" >
+          <a class="btn btn-CPE" routerLink = "event">กิจกรรมและประชาชัมพันธ์</a>
+        </li>
+        &nbsp;
+        <li class="nav-item">
+          <a class="btn btn-CPE">สมัครสมาชิก</a>
+        </li>
+        &nbsp;
+        <li class="nav-item">
+          <a class="btn btn-CPE">ล็อกอิน</a>
+        </li>
+        &nbsp;
+        
+      </ul>
+    </div>
+    
+  </nav>
+
+  <div class="container-fluid" style="margin: 1em;">
+    <router-outlet></router-outlet>
+  </div>
