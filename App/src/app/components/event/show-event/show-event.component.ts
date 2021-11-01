@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-event.component.css']
 })
 export class ShowEventComponent implements OnInit {
-
+  item:any = [1,2,3,4,5,6];
   constructor() { }
 
   ngOnInit(): void {
