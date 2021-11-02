@@ -2,21 +2,23 @@
     ประชาสัมพันธ์
 </div>
 <div class="row" style="padding-top: 0.7rem; padding-left: 5rem; padding-right: 5rem;">
-    <div class="col-sm-4 text-center" *ngFor="let item of item; index as i">
+    <div class="col-sm-4 text-center" *ngFor="let item of event; index as i">
         <div class="card mb-3">
             <div class="card-body ">
 
                 <div class="row">
                     <div class="col-12">
-                        <img src="./../../../../assets/icons/home/logo.png" height="100px">
+                        <img [src]="item.img" height="100px">
                     </div>
                     <div class="col-12 Header-text">
-                        Header
+                        {{item.title}}
                     </div>
                     <div class="col-12 subtitle-text">
-                        Subtitle
+                        {{item.body}}
                     </div>
-
+                    <div class="col-12 subtitle-text">
+                        <a [href]="item.urllink" target="_blank">{{item.urllink}}</a>
+                    </div>
 
                 </div>
 
