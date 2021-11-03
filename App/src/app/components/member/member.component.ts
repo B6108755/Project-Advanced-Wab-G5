@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 export class MemberComponent implements OnInit {
 
   members: any;
+  item = { "_id": Number }
   token!: string;
 
   constructor(public local: LocalStorageService, private ms: MembersService, private router: Router) {
@@ -36,6 +37,27 @@ export class MemberComponent implements OnInit {
   signout() {
     this.local.clear();
     this.router.navigate(['/signin']);
+  }
+
+
+  deletemember(item: any) {
+    console.log(item);
+    this.item._id = item;
+    console.log(this.item);
+
+    try {
+      this.ms.deleteMember(this.item).subscribe(
+        data => {
+          //this.products = data;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+    window.location.reload();
   }
 
 }

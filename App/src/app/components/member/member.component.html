@@ -31,15 +31,13 @@
                 <td><img [src]="item.img" style="height:150px;"></td>
                 <td>
                     <div class="col-md-12">
-                        <a class="btn btn-primary" type="submit" >
+                        <a class="btn btn-primary" type="submit" (click)="deletemember(item._id)">
                         ลบสมาชิก   
                     </a>
                     <a class="btn btn-secondary" style="margin-left: 15px;" type="submit" >
                         แก้ไขข้อมูล
                     </a>
                     </div>
-                    
-                    
                 </td>
             </tr>
         </tbody>
