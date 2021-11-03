@@ -6,21 +6,28 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { SigninComponent } from './components/signin/signin.component';
+import { MemberComponent } from './components/member/member.component';
+import { AngularWebStorageModule } from 'angular-web-storage';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-  
+    SigninComponent,
+    MemberComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularWebStorageModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
