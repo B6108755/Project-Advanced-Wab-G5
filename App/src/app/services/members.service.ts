@@ -9,7 +9,7 @@ export class MembersService {
   constructor(private http: HttpClient) { }
   getAllMember(token: any) {
     const headers = { 'Authorization': token }
-    return this.http.get<any>('http://localhost:3000/api/products', { headers })
+    return this.http.get<any>('http://localhost:3000/member/getmember', { headers })
       .pipe(map(data => {
         if (data) {
           this.member = data;
@@ -18,4 +18,12 @@ export class MembersService {
         return data;
       }));
   }
+
+  deleteMember(member : any){
+    return this.http.post<any>('http://localhost:3000/member/deletemember', member)
+    .pipe(map(data =>{
+      return data;
+    }))
+  }
+  
 }
