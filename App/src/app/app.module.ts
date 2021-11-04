@@ -19,6 +19,7 @@ import { AngularWebStorageModule } from 'angular-web-storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpdateComponent } from './components/update/update.component';
 import { AddmemberComponent } from './components/addmember/addmember.component';
+import { AddAdminComponent } from './components/add-admin/add-admin.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { AddmemberComponent } from './components/addmember/addmember.component';
     ExampleOfEventComponent,
     UpdateComponent,
     AddmemberComponent,
+    AddAdminComponent,
   ],
   imports: [
     BrowserModule,

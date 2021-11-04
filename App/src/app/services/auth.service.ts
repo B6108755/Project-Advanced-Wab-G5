@@ -20,8 +20,9 @@ export class AuthService {
     }));
   }
 
-  signUp(authData: any){
-    return this.http.post<any>('http://localhost:3000/user/signup',authData)
+  signUp(authData: any, token:any){
+    const headers = { 'Authorization': token }
+    return this.http.post<any>('http://localhost:3000/user/signup',authData, { headers })
     .pipe(map(data =>{
       if(data){
        

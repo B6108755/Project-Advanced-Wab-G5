@@ -36,14 +36,5 @@ export class SigninComponent implements OnInit {
     );
   }
 
-  signup() {
-    this.auth.signUp(this.authForm.value).subscribe(
-      data => {
-        alert(data.message)
-      },
-      err => {
-        alert('Sign Up failure!!!')
-      }
-    )
-  }
+  
 }

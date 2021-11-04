@@ -9,6 +9,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { GetRouteComponent } from './get-route/get-route.component';
 import { UpdateComponent } from './components/update/update.component';
 import { AddmemberComponent } from './components/addmember/addmember.component';
+import { AddAdminComponent } from './components/add-admin/add-admin.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path : 'signin' , component : SigninComponent},
   {path : 'members' , component : MemberComponent},
   {path: 'edit/:id', component: UpdateComponent },
-  {path : 'addMember' , component : AddmemberComponent}
+  {path : 'addMember' , component : AddmemberComponent},
+  {path : 'addAdmin' , component : AddAdminComponent}
 ];
 
 @NgModule({
