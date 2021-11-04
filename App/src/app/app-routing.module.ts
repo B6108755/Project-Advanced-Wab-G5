@@ -4,9 +4,11 @@ import { InputEventComponent } from './components/event/input-event/input-event.
 import { ShowEventComponent } from './components/event/show-event/show-event.component';
 import { HomeComponent } from './components/home/home.component';
 import { MemberComponent } from './components/member/member.component';
-import { AddmemberComponent } from './components/members/addmember/addmember.component';
+
 import { SigninComponent } from './components/signin/signin.component';
 import { GetRouteComponent } from './get-route/get-route.component';
+import { UpdateComponent } from './components/update/update.component';
+import { AddmemberComponent } from './components/addmember/addmember.component';
 
 const routes: Routes = [
   {
@@ -19,8 +21,8 @@ const routes: Routes = [
   {path : 'event/:id' , component : GetRouteComponent},
   {path : 'signin' , component : SigninComponent},
   {path : 'members' , component : MemberComponent},
+  {path: 'edit/:id', component: UpdateComponent },
   {path : 'addMember' , component : AddmemberComponent}
-  
 ];
 
 @NgModule({

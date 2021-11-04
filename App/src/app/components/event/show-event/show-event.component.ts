@@ -48,7 +48,7 @@ export class ShowEventComponent implements OnInit {
       this.router.navigate([id])
       
     } catch (error) {
-      console.log(error)
+      this.router.navigate(['/signin'])
     }
   }
 

@@ -13,10 +13,12 @@ import { MemberComponent } from './components/member/member.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { ExampleOfEventComponent } from './components/event/example-of-event/example-of-event.component';
-import { AddmemberComponent } from './components/members/addmember/addmember.component';
 
 
-
+import { AngularWebStorageModule } from 'angular-web-storage';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UpdateComponent } from './components/update/update.component';
+import { AddmemberComponent } from './components/addmember/addmember.component';
 
 
 @NgModule({
@@ -30,15 +32,18 @@ import { AddmemberComponent } from './components/members/addmember/addmember.com
     SigninComponent,
     NavigationBarComponent,
     ExampleOfEventComponent,
+    UpdateComponent,
     AddmemberComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularWebStorageModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

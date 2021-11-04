@@ -19,6 +19,15 @@ export class EventServicesService {
     }))
   }
 
+  getOneEvent(id:any,token:any){
+    const headers = { 'Authorization': token }
+    return this.http.get<any>('http://localhost:3000/event/getone/' + id , {headers})
+    .pipe(map(data => {
+      return data
+    }))
+
+  }
+
   getEvent(){
     return this.http.get<any>('http://localhost:3000/event/get')
     .pipe(map(data => {
@@ -39,6 +48,15 @@ export class EventServicesService {
         return this.event
       }
       return this.event
+    }))
+  }
+
+
+  updateEvent(id:any, eventData:any, token:any ){
+    const headers = { 'Authorization': token }
+    return this.http.put<any>('http://localhost:3000/event/update/' + id , eventData, { headers })
+    .pipe(map(data => {
+      return data
     }))
   }
 

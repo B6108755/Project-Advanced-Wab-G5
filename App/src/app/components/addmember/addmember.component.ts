@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LocalStorageService } from 'angular-web-storage';
 import { MembersService } from 'src/app/services/members.service';
+
 
 @Component({
   selector: 'app-addmember',
@@ -13,7 +15,11 @@ export class AddmemberComponent implements OnInit {
   majorList: string[] = ['วิศวกรรมขนส่ง', 'วิศวกรรมการผลิต', 'วิศวกรรมไฟฟ้า', 'วิศวกรรมโยธา', 'วิศวกรรมสิ่งแวดล้อม', 'วิศวกรรมโลหะการ', 'วิศวกรรมธรณี', 'วิศวกรรมอิเล็กทรอนิกส์',
   'วิศวกรรมอุตสาหการ', 'วิศวกรรมเครื่องกล', 'วิศวกรรมเกษตร', 'วิศวกรรมคอมพิวเตอร์', 'วิศวกรรมเคมี', 'วิศวกรรมเซรามิก', 'วิศวกรรมโทรคมนาคม', 'วิศวกรรมพอลิเมอร์', 'วิศวกรรมอินเตอร์',];
 
-  constructor(private ps: MembersService) { }
+  token:any;
+
+  constructor(private ps:MembersService, public local : LocalStorageService) {
+    
+   }
 
   ngOnInit(): void {
   }
@@ -36,7 +42,7 @@ export class AddmemberComponent implements OnInit {
     this.memberForm.patchValue({password : this.memberForm.value.tell})
     this.ps.addMember(this.memberForm.value).subscribe(data => {
       console.log(data)
-      alert('สมัครสมาชิกสำเร็จ ยินดีต้อนรับเข้าสู่ชมรมคอมพิวเตอร์\n' + "USERNAME : " +  this.memberForm.value.sid + "\n" + "PASSWORD : " +  this.memberForm.value.tell )
+      alert('สมัครสมาชิกสำเร็จ ยินดีต้อนรับเข้าสู่ชมรมคอมพิวเตอร์')
       this.memberForm.reset();
     }, err => {
       console.log(err);

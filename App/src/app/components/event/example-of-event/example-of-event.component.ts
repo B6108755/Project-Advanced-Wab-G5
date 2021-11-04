@@ -55,6 +55,7 @@ export class ExampleOfEventComponent implements OnInit, DoCheck {
         },
         err => {
           alert('File is too large Please Change or resize');
+          console.log(err)
         }
       )
     }else{

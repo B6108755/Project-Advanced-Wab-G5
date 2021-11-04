@@ -1,21 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { MembersService } from 'src/app/services/members.service';
 import { LocalStorageService } from 'angular-web-storage';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Member } from 'src/app/Member';
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
   styleUrls: ['./member.component.css']
 })
 export class MemberComponent implements OnInit {
-
+  pond!: Member;
   members: any;
   item = { "_id": Number }
   token!: string;
 
-  constructor(public local: LocalStorageService, private ms: MembersService, private router: Router) {
+
+  constructor(public local: LocalStorageService, private ms: MembersService, private router: Router, ) {
     try {
+
+
       this.token = this.local.get('user').token
       this.local.set('status', true)
       this.ms.getAllMember(this.token).subscribe(
@@ -47,7 +51,6 @@ export class MemberComponent implements OnInit {
     console.log(this.item);
 
     try {
-      this.token = this.local.get('user').token
       this.ms.deleteMember(this.item, this.token).subscribe(
         data => {
           //this.products = data;
@@ -59,7 +62,13 @@ export class MemberComponent implements OnInit {
     } catch (error) {
       console.log(error);
     }
-    window.location.reload()
+    window.location.reload();
   }
+
+  moveToMember(id:any){
+    this.router.navigate(['/edit/' + id])
+  }
+
+
 
 }
