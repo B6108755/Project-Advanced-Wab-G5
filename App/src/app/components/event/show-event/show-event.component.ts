@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LocalStorageService } from 'angular-web-storage';
 import { EventServicesService } from 'src/app/services/event/event-services.service';
 
 @Component({
@@ -8,12 +10,22 @@ import { EventServicesService } from 'src/app/services/event/event-services.serv
 })
 export class ShowEventComponent implements OnInit {
   event!:any[]
-  constructor(private ess : EventServicesService) {
-    this.onloadevent()
+  status: boolean = false;
+  token!:any;
+
+  constructor(private ess : EventServicesService, public local : LocalStorageService, private router : Router) {
+    try {
+      this.status = this.local.get('status')
+      this.onloadevent()
+    } catch (error) {
+      this.onloadevent()
+    }
    }
+
 
   ngOnInit(): void {
   }
+
   onloadevent(){
     try {
       this.ess.getEvent().subscribe(
@@ -29,6 +41,37 @@ export class ShowEventComponent implements OnInit {
     }
   }
 
+  toEdit(id:any){
+    try {
+      id = '/event/' + id
+      console.log(id)
+      this.router.navigate([id])
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  deleteEvent(item:any){
+    try {
+      console.log(item)
+      this.token = this.local.get('user').token
+      this.ess.deleteEvent(item, this.token).subscribe(
+        data => {
+          this.event = data
+          this.onloadevent()
+        },
+        err => {
+          console.log(err)
+          this.local.clear()
+          this.router.navigate(['/signin'])
+        }
+      )
+      
+    } catch (error) {
+      
+    }
+  }
 
 
 }

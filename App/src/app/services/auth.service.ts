@@ -10,7 +10,7 @@ export class AuthService {
   constructor(private http: HttpClient, public local:LocalStorageService) { }
 
   signIn(authData: any){
-    return this.http.post<any>('http://localhost:3000/login/signin',authData)
+    return this.http.post<any>('http://localhost:3000/login/signin', authData)
     .pipe(map(data =>{
         if(data){
           this.local.set('user', data, 1, 'w');

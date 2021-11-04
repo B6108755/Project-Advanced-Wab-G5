@@ -62,39 +62,7 @@
                                     </div>
                                     <h4 class=" text-center">Example</h4>
                                 </div>
-                                <div class="row text-center"  >
-                                    <div class="col-md-2">
-                                        
-                                    </div>
-                                    <div class="card mb  " >
-                                        
-                                        <div class="card-body" >
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <img *ngIf="previewLoaded" class="img-thumbnail" [src]="this.EventForm.value.img" style="height:150px;">
-                                                </div>
-                                                <div class="col-12 Header-text" >
-                                                    {{this.EventForm.value.title}}
-                                                </div>
-                                                <div class="col-12 subtitle-text">
-                                                    {{this.EventForm.value.body}}
-                                                </div>
-                                                <div class="col-12 subtitle-text" *ngIf = "showlink">
-                                                    <a [href]="link" target="_blank" >{{this.EventForm.value.urllink}}</a>
-                                                </div>
-                                                <div class="col-12">
-                                                    
-                                                </div>
-                                                <div class="col-12 subtitle-text">
-                                                    <button type="button" class="btn btn-primary" (click)="addEvent()">Summit</button>&nbsp;
-                                                    <button type="reset" class="btn btn-outline-danger" (click)="resetForm()">Reset</button>
-                                                    
-                                                </div>
-                                            </div>
-                            
-                                        </div>
-                                    </div>
-                                </div>
+                                <app-example-of-event [FormMessage] = "this.EventForm" [preview] = "this.previewLoaded"></app-example-of-event>
                                 
                             </div>
                         </div>

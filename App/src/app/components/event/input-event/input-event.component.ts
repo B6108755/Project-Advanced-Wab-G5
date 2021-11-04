@@ -1,5 +1,7 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LocalStorageService } from 'angular-web-storage';
 import { EventServicesService } from 'src/app/services/event/event-services.service';
 
 @Component({
@@ -23,17 +25,29 @@ export class InputEventComponent implements OnInit, DoCheck{
 
   previewLoaded : boolean = false;
   showlink : boolean = false;
-  
+  datainbody!: string ;
+  token!: any
 
-  constructor(private ess : EventServicesService) { }
+  constructor(private ess : EventServicesService , public local : LocalStorageService, private router : Router) {
+    try {
+      this.token = this.local.get('user').token
+      
+    } catch (error) {
+      this.router.navigate(['/signin'])
+    }
+    
+    
+   }
 
   
   ngDoCheck(){
+    
     if(this.EventForm.status === "VALID"){
       this.showlink = true;
     }else{
       this.showlink = false;
     }
+
   }
 
   ngOnInit(): void {
@@ -41,8 +55,17 @@ export class InputEventComponent implements OnInit, DoCheck{
 
 
   addEvent(){
+    
+    if(this.EventForm.value.body.length > 400){
+      this.datainbody = this.EventForm.value.body
+      this.datainbody = this.datainbody.substring(0,400)
+      this.datainbody = this.datainbody + " อ่านต่อ......"
+      this.EventForm.patchValue({
+        body : this.datainbody
+      })
+    }
     if(this.EventForm.status === "VALID"){
-      this.ess.addEvent(this.EventForm.value).subscribe(
+      this.ess.addEvent(this.EventForm.value, this.token).subscribe(
         data => {
           alert('Successfully\n' + data);
           this.EventForm.reset();

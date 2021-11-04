@@ -8,6 +8,14 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ShowEventComponent } from './components/event/show-event/show-event.component';
 import { InputEventComponent } from './components/event/input-event/input-event.component';
+import { GetRouteComponent } from './get-route/get-route.component';
+import { MemberComponent } from './components/member/member.component';
+import { SigninComponent } from './components/signin/signin.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { ExampleOfEventComponent } from './components/event/example-of-event/example-of-event.component';
+import { AddmemberComponent } from './components/members/addmember/addmember.component';
+
+
 
 
 
@@ -16,7 +24,14 @@ import { InputEventComponent } from './components/event/input-event/input-event.
     AppComponent,
     HomeComponent,
     ShowEventComponent,
-    InputEventComponent
+    InputEventComponent,
+    GetRouteComponent,
+    MemberComponent,
+    SigninComponent,
+    NavigationBarComponent,
+    ExampleOfEventComponent,
+    AddmemberComponent,
+
   ],
   imports: [
     BrowserModule,

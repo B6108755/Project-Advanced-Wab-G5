@@ -11,8 +11,9 @@ export class EventServicesService {
 
   event:any;
 
-  addEvent(eventData:any){
-    return this.http.post<any>('http://localhost:3000/event/add' , eventData)
+  addEvent(eventData:any, token:any){
+    const headers = { 'Authorization': token }
+    return this.http.post<any>('http://localhost:3000/event/add' , eventData , { headers })
     .pipe(map(data => {
       return data
     }))
@@ -28,5 +29,18 @@ export class EventServicesService {
       return this.event
     }))
   }
+
+  deleteEvent(id:any, token:any){
+    const headers = { 'Authorization': token }
+    return this.http.delete<any>('http://localhost:3000/event/delete/' + id._id, {headers})
+    .pipe(map(data =>{
+      if(data){
+        this.event = data
+        return this.event
+      }
+      return this.event
+    }))
+  }
+
 
 }
