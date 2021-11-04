@@ -10,6 +10,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { MemberComponent } from './components/member/member.component';
 import { AngularWebStorageModule } from 'angular-web-storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UpdateComponent } from './components/update/update.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HomeComponent,
     SigninComponent,
-    MemberComponent
+    MemberComponent,
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,
