@@ -3,13 +3,14 @@ import { MembersService } from 'src/app/services/members.service';
 import { LocalStorageService } from 'angular-web-storage';
 import { Router } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Member } from 'src/app/Member';
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
   styleUrls: ['./member.component.css']
 })
 export class MemberComponent implements OnInit {
-
+  pond!: Member;
   members: any;
   item = { "_id": Number }
   token!: string;
@@ -58,6 +59,11 @@ export class MemberComponent implements OnInit {
       console.log(error);
     }
     window.location.reload();
+  }
+
+  update(member: any) {
+    this.ms.setter(member);
+    this.router.navigate(['/update']);
   }
 
 }
